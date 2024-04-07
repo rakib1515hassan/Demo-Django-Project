@@ -1,0 +1,123 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %} Create Student {% endblock title %}
+
+{% block style %} {% endblock style %}
+
+
+{% block content %}
+
+ <div class="card radius-5 col-sm-12 col-md-8 col-lg-8 col-xxl-6">
+
+     <div class="card-header">
+         <div class="d-flex align-items-center">
+             <div>
+                 <h6 class="mb-0">Student Create</h6>
+             </div>
+         </div>
+     </div>
+
+     <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+
+            <!-- Name input -->
+            <div class="row g-1 align-items-center">
+                <div class="col-2">
+                    <label for="inputPassword6" class="col-form-label">Name</label>
+                </div>
+                <div class="col-10">
+                    <!-- <input type="text" id="name" class="form-control" aria-describedby="name" placeholder="Write student name" /> -->
+                    {{form.name}}
+                </div>
+            </div>
+
+            <!-- Roll input -->
+            <div class="row g-1 align-items-center mt-1">
+                <div class="col-2">
+                    <label for="roll" class="col-form-label">Roll</label>
+                </div>
+                <div class="col-10">
+                    <!-- <input type="number" id="roll" class="form-control" placeholder="Write student roll" /> -->
+                    {{form.roll}}
+                </div>
+            </div>
+
+            <!-- Name input -->
+            <div class="row g-1 align-items-center mt-1">
+                <div class="col-2">
+                    <label for="inputPassword6" class="col-form-label">Subject</label>
+                </div>
+                <div class="col-10">
+                    <!-- <select class="form-select" aria-label=".form-select-lg example" name="subject">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select> -->
+                      {{form.subject}}
+                </div>
+            </div>
+
+            <!-- Name input -->
+            <div class="row g-1 align-items-center mt-1">
+                <div class="col-2">
+                    <label for="inputPassword6" class="col-form-label">Image</label>
+                </div>
+                <div class="col-10">
+                    <!-- <input type="file" id="image" class="form-control" accept="image/*" /> -->
+                    {{form.image}}
+                </div>
+            </div>
+
+            <!-- Name input -->
+            <div class="row g-1 align-items-center mt-1">
+                <div class="col-2">
+                    <label for="inputPassword6" class="col-form-label">CV</label>
+                </div>
+                <div class="col-10">
+                    <!-- <input type="file" id="cv" class="form-control" /> -->
+                    {{form.cv}}
+                </div>
+            </div>
+
+            <!-- Name input -->
+            <div class="row g-1 align-items-center mt-1">
+                <div class="col-2">
+                    <label for="inputPassword6" class="col-form-label">Description</label>
+                </div>
+                <div class="col-10">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group row mt-3">
+                <div class="col-10 offset-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-save me-2"></i>
+                        Create
+                    </button>
+
+                    <a href="" class="btn btn-secondary">
+                        <i class="fa fa-times me-2"></i>
+                        Cancel
+                    </a>
+                </div>
+            </div>
+        </form>
+     </div>
+
+</div>
+{% endblock content %}
+
+{% block script %} 
+<script>
+    // Initialization for ES Users
+    import { Input, Ripple, initMDB } from "mdb-ui-kit";
+
+    initMDB({ Input, Ripple });
+</script>
+{% endblock script %}

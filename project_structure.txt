@@ -1,0 +1,28 @@
+Cardboard-Boxes-Project/
+|-- manage.py
+|-- requirements.txt
+|
+|-- card_boxes/
+|   |-- settings.py
+|   |-- urls.py
+|   |-- ...
+|-- apps/
+|   |-- core/
+|   |   |-- templatetags/
+|   |   |   |-- shared.py
+
+|   |   
+|   |-- users/
+|   |   |-- migrations/
+|   |   |-- templates/
+|   |   |-- admin.py
+|   |   |-- apps.py
+|   |   |-- models.py
+|   |   |-- views.py
+|   |   |-- urls.py
+|   |   
+|   |  
+|
+|-- static/
+|-- media/
+|-- templates/
