@@ -1,6 +1,6 @@
 from django.db import models
 from apps.core.models import TimestampedModel
-
+from apps.core.models import District
 
 
 # Create your models here.
@@ -27,9 +27,8 @@ class Student(TimestampedModel):
     image = models.ImageField(upload_to='Student/Images/', null=True, blank=True)
     cv    = models.FileField(upload_to='Student/CV/', null=True, blank=True)
     dob   = models.DateField(null=True, blank=True)
-    city  = models.ForeignKey()
+    city  = models.ForeignKey(District, null=True, blank=True, on_delete=models.SET_NULL)
 
-    # roll = models.IntegerField(unique=True)
     roll = models.IntegerField()
     subject = models.CharField(max_length=250, choices=SubjectType.choices, null=True, blank=True)
     description = models.TextField(null=True, blank=True)

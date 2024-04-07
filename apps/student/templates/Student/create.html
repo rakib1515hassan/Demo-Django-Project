@@ -20,13 +20,17 @@
 
      <div class="card-body">
         <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
 
             <!-- Name input -->
             <div class="row g-1 align-items-center">
-                <div class="col-2">
-                    <label for="inputPassword6" class="col-form-label">Name</label>
+                <div class="col-3">
+                    <label for="inputPassword6" class="col-form-label">
+                        Name<span class="text-danger">*</span>
+                    </label>
                 </div>
-                <div class="col-10">
+                <div class="col-6">
                     <!-- <input type="text" id="name" class="form-control" aria-describedby="name" placeholder="Write student name" /> -->
                     {{form.name}}
                 </div>
@@ -34,21 +38,70 @@
 
             <!-- Roll input -->
             <div class="row g-1 align-items-center mt-1">
-                <div class="col-2">
-                    <label for="roll" class="col-form-label">Roll</label>
+                <div class="col-3">
+                    <label for="roll" class="col-form-label">
+                        Roll<span class="text-danger">*</span>
+                    </label>
                 </div>
-                <div class="col-10">
+                <div class="col-6">
                     <!-- <input type="number" id="roll" class="form-control" placeholder="Write student roll" /> -->
                     {{form.roll}}
                 </div>
             </div>
 
-            <!-- Name input -->
+            <!-- Phone input -->
             <div class="row g-1 align-items-center mt-1">
-                <div class="col-2">
+                <div class="col-3">
+                    <label for="phone" class="col-form-label">
+                        Phone<span class="text-danger">*</span>
+                    </label>
+                </div>
+                <div class="col-6">
+                    {{form.phone}}
+                </div>
+            </div>
+
+            <!-- City input -->
+            <div class="row g-1 align-items-center mt-1">
+                <div class="col-3">
+                    <label for="city" class="col-form-label">City</label>
+                </div>
+                <div class="col-6">
+                    {{form.city}}
+                </div>
+            </div>
+
+            <!-- Birth Date input -->
+            <div class="row g-1 align-items-center mt-1">
+                <div class="col-3">
+                    <label for="dob" class="col-form-label">
+                        Birth Date
+                    </label>
+                </div>
+                <div class="col-6">
+                    {{form.dob}}
+                </div>
+            </div>
+
+
+            <!-- Gender input -->
+            <div class="row g-1 align-items-center mt-1">
+                <div class="col-3">
+                    <label for="gender" class="col-form-label">
+                        Gender<span class="text-danger">*</span>
+                    </label>
+                </div>
+                <div class="col-6">
+                    {{form.gender}}
+                </div>
+            </div>
+
+            <!-- Subject input -->
+            <div class="row g-1 align-items-center mt-1">
+                <div class="col-3">
                     <label for="inputPassword6" class="col-form-label">Subject</label>
                 </div>
-                <div class="col-10">
+                <div class="col-6">
                     <!-- <select class="form-select" aria-label=".form-select-lg example" name="subject">
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>
@@ -59,35 +112,46 @@
                 </div>
             </div>
 
-            <!-- Name input -->
+            <!-- Image input -->
             <div class="row g-1 align-items-center mt-1">
-                <div class="col-2">
+                <div class="col-3">
                     <label for="inputPassword6" class="col-form-label">Image</label>
                 </div>
-                <div class="col-10">
+                <div class="col-6">
                     <!-- <input type="file" id="image" class="form-control" accept="image/*" /> -->
                     {{form.image}}
                 </div>
             </div>
 
-            <!-- Name input -->
+            <!-- CV input -->
             <div class="row g-1 align-items-center mt-1">
-                <div class="col-2">
+                <div class="col-3">
                     <label for="inputPassword6" class="col-form-label">CV</label>
                 </div>
-                <div class="col-10">
+                <div class="col-6">
                     <!-- <input type="file" id="cv" class="form-control" /> -->
                     {{form.cv}}
                 </div>
             </div>
 
-            <!-- Name input -->
+            <!-- Verified input -->
             <div class="row g-1 align-items-center mt-1">
-                <div class="col-2">
+                <div class="col-3">
+                    <label for="is_verified" class="col-form-label">Verified</label>
+                </div>
+                <div class="col-6">
+                    {{form.is_verified}}
+                </div>
+            </div>
+
+            <!-- Description input -->
+            <div class="row g-1 align-items-center mt-1">
+                <div class="col-3">
                     <label for="inputPassword6" class="col-form-label">Description</label>
                 </div>
-                <div class="col-10">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <div class="col-6">
+                    <!-- <textarea class="form-control" id="description" rows="5"></textarea> -->
+                    {{form.description}}
                 </div>
             </div>
 
@@ -95,7 +159,7 @@
 
 
             <div class="form-group row mt-3">
-                <div class="col-10 offset-2">
+                <div class="col-10 offset-3">
                     <button type="submit" class="btn btn-primary">
                         <i class="fa fa-save me-2"></i>
                         Create
@@ -115,9 +179,19 @@
 
 {% block script %} 
 <script>
+    $(document).ready(function () {
+      $(".singel_select").select2({
+        placeholder: "Select student city",
+        allowClear: true,
+      });
+    });
+</script>
+
+<script>
     // Initialization for ES Users
     import { Input, Ripple, initMDB } from "mdb-ui-kit";
 
     initMDB({ Input, Ripple });
 </script>
+
 {% endblock script %}

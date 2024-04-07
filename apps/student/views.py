@@ -40,26 +40,26 @@ class StudentCreateView(generic.CreateView, LoginRequiredMixin):
     model = Student
     form_class = StudentForm
     template_name = "Student/create.html"
-    # success_url = reverse_lazy('employee:employee_list')
+    success_url = reverse_lazy('student:student_list')
 
-    # def form_valid(self, form):
-    #     form.save()
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
-    # def form_invalid(self, form):
-    #     field_errors = {field.name: field.errors for field in form}
-    #     has_errors = any(field_errors.values())
+    def form_invalid(self, form):
+        field_errors = {field.name: field.errors for field in form}
+        has_errors = any(field_errors.values())
 
-    #     print("---------------------")
-    #     print(f"Field = {field_errors}, HasErrors = {has_errors}")
-    #     print(f"HasErrors = {has_errors}")
-    #     print("---------------------")
+        print("---------------------")
+        print(f"Field = {field_errors}, HasErrors = {has_errors}")
+        print(f"HasErrors = {has_errors}")
+        print("---------------------")
 
-    #     return self.render_to_response(self.get_context_data(
-    #             form = form, 
-    #             field_errors = field_errors, 
-    #             has_errors   = has_errors
-    #         ))
+        return self.render_to_response(self.get_context_data(
+                form = form, 
+                field_errors = field_errors, 
+                has_errors   = has_errors
+            ))
 
 
 
